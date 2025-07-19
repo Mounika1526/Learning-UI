@@ -245,7 +245,7 @@ export function YodhaPharmacy() {
           <div className="flex flex-row items-center justify-between px-16 py-12 gap-8">
             <div className="flex items-center gap-6 flex-1">
               <img
-                src="/public/images/icon_1.svg"
+                src="/images/icon_1.svg"
                 alt="Location"
                 className="w-24 h-24"
               />
@@ -261,7 +261,7 @@ export function YodhaPharmacy() {
             <div className="h-28 w-px bg-white opacity-40 mx-4"></div>
             <div className="flex items-center gap-6 flex-1">
               <img
-                src="/public/images/icon_2.svg"
+                src="/images/icon_2.svg"
                 alt="Location"
                 className="w-24 h-24"
               />
@@ -277,7 +277,7 @@ export function YodhaPharmacy() {
             <div className="h-28 w-px bg-white opacity-40 mx-4"></div>
             <div className="flex items-center gap-6 flex-1">
               <img
-                src="/public/images/icon_3.svg"
+                src="/images/icon_3.svg"
                 alt="Orders"
                 className="w-24 h-24"
               />
@@ -323,7 +323,7 @@ export function YodhaPharmacy() {
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between gap-8 px-6">
           <div className="flex-1 min-w-[220px]">
             <img
-              src="/public/images/company-logo-white.svg"
+              src="/images/company-logo-white.svg"
               alt="Yoda Pharmacy"
               className="h-10 mb-4 text-white"
             />
