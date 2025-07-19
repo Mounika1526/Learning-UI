@@ -1,9 +1,20 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/login")({
-  component: RouteComponent,
+  component: Home,
 });
 
-function RouteComponent() {
-  return <div>Hello "/login"!</div>;
+function Home() {
+  const navigate = useNavigate();
+  return (
+    <div className="flex flex-cols justify-between">
+      <Button
+        className=" cursor-pointer"
+        onClick={() => navigate({ to: "/yodhaPharmacy" })}
+      >
+        Yodha Phramcy Web Page
+      </Button>
+    </div>
+  );
 }
