@@ -4,59 +4,59 @@ const images = [
   { id: 1, url: "/images/_categories_category_1.png", name: "Medicine" },
   {
     id: 2,
-    url: "/public/images/_categories_category_2.png",
+    url: "/images/_categories_category_2.png",
     name: "Women Care",
   },
   {
     id: 3,
-    url: "/public/images/_categories_category_3.png",
+    url: "/images/_categories_category_3.png",
     name: "Health & Nutrition",
   },
-  { id: 4, url: "/public/images/_categories_category_4.png", name: "Proteins" },
+  { id: 4, url: "/images/_categories_category_4.png", name: "Proteins" },
   {
     id: 5,
-    url: "/public/images/_categories_category_5.png",
+    url: "/images/_categories_category_5.png",
     name: "Home Essentials",
   },
-  { id: 6, url: "/public/images/_categories_category_6.png", name: "Ayurveda" },
+  { id: 6, url: "/images/_categories_category_6.png", name: "Ayurveda" },
   {
     id: 7,
-    url: "/public/images/_categories_category_7.png",
+    url: "/images/_categories_category_7.png",
     name: "Personal Care",
   },
-  { id: 8, url: "/public/images/_categories_category_8.png", name: "Offers" },
+  { id: 8, url: "/images/_categories_category_8.png", name: "Offers" },
 ];
 
 const shop = [
-  { id: 1, url: "/public/images/image_1.svg", name: "Skin care" },
-  { id: 2, url: "/public/images/image_2.svg", name: "Vitamins" },
-  { id: 3, url: "/public/images/image_3.svg", name: "Diabetes Care & Sugar" },
-  { id: 4, url: "/public/images/image_4.svg", name: "Cardiac Care" },
-  { id: 5, url: "/public/images/image_5.svg", name: "Baby & Mom Care" },
+  { id: 1, url: "/images/image_1.svg", name: "Skin care" },
+  { id: 2, url: "/images/image_2.svg", name: "Vitamins" },
+  { id: 3, url: "/images/image_3.svg", name: "Diabetes Care & Sugar" },
+  { id: 4, url: "/images/image_4.svg", name: "Cardiac Care" },
+  { id: 5, url: "/images/image_5.svg", name: "Baby & Mom Care" },
 ];
 
 const feature = [
   {
     id: 1,
-    url: "/public/images/_feature-brands_product_1.png",
+    url: "/images/_feature-brands_product_1.png",
     name: "Dettol",
     class: "bg-red-200",
   },
   {
     id: 2,
-    url: "/public/images/_feature-brands_product_2.png",
+    url: "/images/_feature-brands_product_2.png",
     name: "Stayfree",
     class: "bg-blue-200",
   },
   {
     id: 3,
-    url: "/public/images/_feature-brands_product_5.png",
+    url: "/images/_feature-brands_product_5.png",
     name: "Ensure",
     class: "bg-orange-200",
   },
   {
     id: 4,
-    url: "/public/images/_feature-brands_product_6.png",
+    url: "/images/_feature-brands_product_6.png",
     name: "Protinex",
     class: "bg-yellow-100",
   },
@@ -69,12 +69,12 @@ export function YodhaPharmacy() {
         <div className="flex items-center justify-between p-6 font-normal">
           <img src="/images/company-logo.svg" className="h-10" />
           <div className="flex items-center gap-3">
-            <img src="/public/images/testing-tube.svg" className="w-5 h-5" />
+            <img src="/images/testing-tube.svg" className="w-5 h-5" />
             <p className="text-orange-400 text-sm">Lab Tests</p>
-            <img src="/public/images/wishList.svg" className="w-5 h-5" />
+            <img src="/images/wishList.svg" className="w-5 h-5" />
             <p className="text-sm">Wishlist</p>
-            <img src="/public/images/shopping-cart.svg" className="w-5 h-5" />
-            <img src="/public/images/login-user.svg" className="w-5 h-5" />
+            <img src="/images/shopping-cart.svg" className="w-5 h-5" />
+            <img src="/images/login-user.svg" className="w-5 h-5" />
             <p>Login</p>
           </div>
         </div>
@@ -97,7 +97,7 @@ export function YodhaPharmacy() {
         <div className="flex justify-center mt-10 gap-55">
           <p className="text-xl">What are you looking for?</p>
           <div className="flex items-center gap-2">
-            <img src="/public/images/file.svg" className="w-4 h-3" />
+            <img src="/images/file.svg" className="w-4 h-3" />
             <p className="text-sm">Order with Prescription.</p>
             <p className="text-sm text-orange-400">UPLOAD NOW </p>
           </div>
@@ -130,7 +130,7 @@ export function YodhaPharmacy() {
       <div className="max-w-7xl h-60 mt-15 mx-auto border bg-white rounded-xl shadow-md overflow-hidden flex">
         <div className="w-1/3 bg-[#00465E] text-white p-8 flex justify-between items-center">
           <img
-            src="/public/images/_icons_prescription-icon.png"
+            src="/images/_icons_prescription-icon.png"
             alt="Prescription Icon"
             className="w-25 mb-4"
           />
