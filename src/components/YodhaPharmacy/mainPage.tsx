@@ -1,5 +1,6 @@
 import { Edit2 } from "lucide-react";
 import { Pill, MapPin, Package } from "lucide-react";
+import { useEffect } from "react";
 const images = [
   { id: 1, url: "/images/_categories_category_1.png", name: "Medicine" },
   {
@@ -63,6 +64,9 @@ const feature = [
 ];
 
 export function YodhaPharmacy() {
+  useEffect(() => {
+    localStorage.setItem("isAuth", "true");
+  });
   return (
     <div className="h-screen overflow-x-hidden ">
       <div className="flex flex-col sticky top-0 z-40 bg-white">
