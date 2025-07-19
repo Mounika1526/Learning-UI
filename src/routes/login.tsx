@@ -7,6 +7,7 @@ export const Route = createFileRoute("/login")({
 
 function Home() {
   const navigate = useNavigate();
+
   return (
     <div className="flex flex-cols justify-between">
       <Button
