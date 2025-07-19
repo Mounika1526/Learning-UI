@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YodhaPharmacyRouteImport } from './routes/yodhaPharmacy'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
 
 const YodhaPharmacyRoute = YodhaPharmacyRouteImport.update({
   id: '/yodhaPharmacy',
   path: '/yodhaPharmacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/yodhaPharmacy': typeof YodhaPharmacyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/yodhaPharmacy': typeof YodhaPharmacyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/yodhaPharmacy': typeof YodhaPharmacyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/yodhaPharmacy'
+  fullPaths: '/' | '/login' | '/yodhaPharmacy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/yodhaPharmacy'
-  id: '__root__' | '/' | '/yodhaPharmacy'
+  to: '/' | '/login' | '/yodhaPharmacy'
+  id: '__root__' | '/' | '/login' | '/yodhaPharmacy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LoginRoute: typeof LoginRoute
   YodhaPharmacyRoute: typeof YodhaPharmacyRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/yodhaPharmacy'
       fullPath: '/yodhaPharmacy'
       preLoaderRoute: typeof YodhaPharmacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LoginRoute: LoginRoute,
   YodhaPharmacyRoute: YodhaPharmacyRoute,
 }
 export const routeTree = rootRouteImport
