@@ -1,0 +1,119 @@
+Vue.use(VeeValidate),
+  $("#contact-app").length &&
+    new Vue({
+      el: "#leadForm1",
+      data: () => ({
+        submitted: !1,
+        showSuccess: !1,
+        showError: !1,
+        leadData: {
+          first_name: "",
+          last_name: "",  
+          email: "",
+          phone: "",
+          message: "",
+        },
+        ownerData: { email: "pavani.b@orotron.com", name: "CrazyOrbit" },
+        formData: {
+          form_title: "Contact Form",
+          website_title: "CrazyOrbit",
+          website_url: "https://www.crazyorbit.com/",
+        },
+        emailSubject: "Lead from the Website",
+        successResponse: "Thank You, We will get back to you at the earliest",
+        errorResponse:
+          "Sorry! Unable to send your Message Now. Please try again",
+        apiUrl:
+          "https://z7inja5y3g.execute-api.ap-south-1.amazonaws.com/dev/notifications/email",
+      }),
+      methods: {
+        async contactForm() {
+          (this.showSuccess = !1),
+            (this.showError = !1),
+            (this.submitted = !0),
+            this.$validator.validateAll(),
+            !this.errors.any() &&
+              ((
+                await axios.post(this.apiUrl, {
+                  leadData: this.leadData,
+                  ownerData: this.ownerData,
+                  formData: this.formData,
+                  email_subject: this.emailSubject,
+                  success_response: this.successResponse,
+                })
+              ).data.success
+                ? ((this.showError = !1),
+                  (this.showSuccess = !0),
+                  $(".invalid").hide(),
+                  setTimeout(function () {
+                    $("#suceess-message").css("opacity", "0");
+                  }, 3e3),
+                  (this.leadData.first_name = ""),
+                  (this.leadData.last_name = ""),
+                  (this.leadData.email = ""),
+                  (this.leadData.phone = ""),
+                  (this.leadData.message = ""))
+                : (this.showError = !0));
+        },
+      },
+    });
+
+Vue.use(VeeValidate),
+  $("#contact-app").length &&
+    new Vue({
+      el: "#leadForm3",
+      data: () => ({
+        submitted: !1,
+        showSuccess: !1,
+        showError: !1,
+        leadData: {
+          name: "",
+          email: "",
+          project:"",
+          message: "",
+          budget:"",
+        },
+        ownerData: { email: "pavani.b@orotron.com", name: "CrazyOrbit" },
+        formData: {
+          form_title: "Submit Form",
+          website_title: "CrazyOrbit",
+          website_url: "https://www.crazyorbit.com/",
+        },
+        emailSubject: "Lead from the Website",
+        successResponse: "Our team will contact you soon !",
+        errorResponse:
+          "Sorry! Unable to send your Message Now. Please try again",
+        apiUrl:
+          "https://z7inja5y3g.execute-api.ap-south-1.amazonaws.com/dev/notifications/email",
+      }),
+      methods: {
+        async contactForm() {
+          (this.showSuccess = !1),
+            (this.showError = !1),
+            (this.submitted = !0),
+            this.$validator.validateAll(),
+            !this.errors.any() &&
+              ((
+                await axios.post(this.apiUrl, {
+                  leadData: this.leadData,
+                  ownerData: this.ownerData,
+                  formData: this.formData,
+                  email_subject: this.emailSubject,
+                  success_response: this.successResponse,
+                })
+              ).data.success
+                ? ((this.showError = !1),
+                  (this.showSuccess = !0),
+                  $(".invalid").hide(),
+                  setTimeout(function () {
+                    $("#suceess-message").css("opacity", "0");
+                  }, 3e3),
+                  (this.leadData.name = ""),
+                  (this.leadData.email = ""),
+                  (this.leadData.project = ""),
+                  (this.leadData.budget = ""),
+                  (this.leadData.message = ""))
+                : (this.showError = !0));
+        },
+      },
+    });
