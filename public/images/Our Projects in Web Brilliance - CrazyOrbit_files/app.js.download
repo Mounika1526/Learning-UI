@@ -1,0 +1,194 @@
+// Navbar Affix Code
+$(window).scroll(function () {
+  var scroll = $(this).scrollTop();
+  if (scroll > 20) {
+    $("#navbar").addClass("affix");
+  } else {
+    $("#navbar").removeClass("affix");
+  }
+});
+// $(document).ready(function(){
+//   $('#nav-icon2').click(function(){
+//     $(this).toggleClass('open');
+//   });
+// });
+// function myFunction(x) {
+//   x.classList.toggle("change");
+// }
+// $(document).ready(function(){
+//   $('#nav-icon3').click(function(){
+//     $(this).toggleClass('open');
+//   });
+// });
+const burger = document.querySelector('.burger');
+
+burger.addEventListener('click', () => {
+  burger.classList.toggle('active');
+  $('.navbar-toggler').on("click",function(){
+    if ($("html, body").hasClass("disable-scroll")) {
+      $("html, body").removeClass("disable-scroll");
+    }
+    else {
+      $("html, body").addClass("disable-scroll");
+    }
+  });
+});
+
+
+
+
+// Copyright year dynamic 
+$('.c-year').text(new Date().getFullYear());
+
+$(function () {
+  //toggle class open on button
+  $('#navbarSupportedContent').on('hide.bs.collapse', function () {
+    $('.navbar-toggler').removeClass('open');
+  })
+  $('#navbarSupportedContent').on('show.bs.collapse', function () {
+    $('.navbar-toggler').addClass('open');
+  })
+});
+
+// Changes Img to SVG 
+$('img.svg').each(function () {
+  var $img = $(this);
+  var imgID = $img.attr('id');
+  var imgClass = $img.attr('class');
+  var imgURL = $img.attr('src');
+  $.get(imgURL, function (data) {
+    var $svg = $(data).find('svg');
+    if (typeof imgID !== 'undefined') {
+      $svg = $svg.attr('id', imgID);
+    }
+    if (typeof imgClass !== 'undefined') {
+      $svg = $svg.attr('class', imgClass + ' replaced-svg');
+    }
+    $svg = $svg.removeAttr('xmlns:a');
+    $img.replaceWith($svg);
+  }, 'xml');
+});
+
+
+// Add smooth scrolling to all links
+$(".scroll").on('click', function (event) {
+  if (this.hash !== "") {
+    event.preventDefault();
+    var hash = this.hash;
+    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+    // $('html, body').animate({
+    //   scrollTop: $(hash).offset().top
+    // }, 800, function () {
+    //   window.location.hash = hash;
+    // });
+
+    $('html, body').animate({ scrollTop: $(hash).offset().top - scrollOffset }, 500);
+  }
+});
+
+
+$('.featured-clients-slider').slick({
+  dots: false,
+  arrows: false,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  responsive: [{
+    breakpoint: 1024,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+      dots: true
+    }
+  },
+  {
+    breakpoint: 600,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1
+    }
+  },
+  {
+    breakpoint: 480,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1
+    }
+  }, {
+    breakpoint: 320,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1
+    }
+  }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+  
+});
+
+
+$('.customer-review-slider').slick({
+  dots: true,
+  focusOnSelect: true,
+  arrows: false,
+  infinite: true,
+  speed: 1000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 10000,
+});
+
+$('.application-features-slider').slick({
+  dots: false,
+  arrows: false,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+});
+
+
+if ($(".virtualTyped").length) {
+  $(".virtualTyped ").typed({
+    strings: ["Auto Capture Patient Information", "Automate Reports Tracking", "Notify Physicians About Vitals", "Enhanced OCR", "Image Processing", "Document Indexing"],
+    // Optionally use an HTML element to grab strings from (must wrap each string in a <p>)
+    stringsElement: null,
+    // typing speed
+    typeSpeed: 90,
+    // time before typing starts
+    startDelay: 1200,
+    // backspacing speed
+    backSpeed: 40,
+    // time before backspacing
+    backDelay: 500,
+    // loop
+    loop: true,
+    // false = infinite
+    loopCount: 50,
+    // show cursor
+    showCursor: true,
+    // character for cursor
+    cursorChar: "|",
+    // attribute to type (null == text)
+    attr: null,
+    // either html or text
+    contentType: 'html',
+    // call when done callback function
+    callback: function () { },
+    // starting callback function before each string
+    preStringTyped: function () { },
+    //callback for every typed string
+    onStringTyped: function () { },
+    // callback for reset
+    resetCallback: function () { }
+  });
+};

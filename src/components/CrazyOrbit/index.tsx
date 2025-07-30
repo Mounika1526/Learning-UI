@@ -1,7 +1,10 @@
+import Footer from "./Footer";
+import Navbar from "./nav";
+
 export function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a1a2f] to-black text-white relative pb-20">
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#0a1a2f] backdrop-blur bg-opacity-80">
+      {/* <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#0a1a2f] backdrop-blur bg-opacity-80">
         <img
           src="https://crazyorbit-dev.netlify.app/img/main-logo.png"
           alt="CrazyOrbit Logo"
@@ -27,7 +30,8 @@ export function AboutPage() {
             Work with us
           </button>
         </div>
-      </nav>
+      </nav> */}
+      <Navbar />
       <div className="h-20"></div>
       <div className="max-w-2xl mx-auto text-center space-y-3 py-12 px-4">
         <h1 className="text-2xl md:text-5xl font-semibold  mb-7">
@@ -526,8 +530,33 @@ export function AboutPage() {
           </a>
         </div>
 
+        
+
         {/* Custom Spin Animation */}
       </section>
+      <Footer />
     </div>
   );
 }
+
+
+
+//  <div className="absolute right-10 top-40 md:top-24">
+//           <img src="images/buble.png" alt="CrazyOrbit Logo" className="h-34" />
+//         </div>
+//         {/* Down Arrow */}
+
+//         <div className="absolute right-10 top-40 md:top-24">
+//           <div className="w-20 h-25 border border-white rounded-full flex items-center justify-center">
+//             <svg
+//               width="32"
+//               height="32"
+//               fill="none"
+//               stroke="white"
+//               strokeWidth="2"
+//               viewBox="0 0 24 24"
+//             >
+//               <path d="M12 5v14m0 0l-7-7m7 7l7-7" />
+//             </svg>
+//           </div>
+//         </div>

@@ -10,13 +10,20 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YodhaPharmacyRouteImport } from './routes/yodhaPharmacy'
+import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as CrazyorbitRouteImport } from './routes/crazyorbit'
+import { Route as CareersRouteImport } from './routes/careers'
 import { Route as IndexRouteImport } from './routes/index'
 
 const YodhaPharmacyRoute = YodhaPharmacyRouteImport.update({
   id: '/yodhaPharmacy',
   path: '/yodhaPharmacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -29,6 +36,11 @@ const CrazyorbitRoute = CrazyorbitRouteImport.update({
   path: '/crazyorbit',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,35 +49,62 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/careers': typeof CareersRoute
   '/crazyorbit': typeof CrazyorbitRoute
   '/login': typeof LoginRoute
+  '/projects': typeof ProjectsRoute
   '/yodhaPharmacy': typeof YodhaPharmacyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/careers': typeof CareersRoute
   '/crazyorbit': typeof CrazyorbitRoute
   '/login': typeof LoginRoute
+  '/projects': typeof ProjectsRoute
   '/yodhaPharmacy': typeof YodhaPharmacyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/careers': typeof CareersRoute
   '/crazyorbit': typeof CrazyorbitRoute
   '/login': typeof LoginRoute
+  '/projects': typeof ProjectsRoute
   '/yodhaPharmacy': typeof YodhaPharmacyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/crazyorbit' | '/login' | '/yodhaPharmacy'
+  fullPaths:
+    | '/'
+    | '/careers'
+    | '/crazyorbit'
+    | '/login'
+    | '/projects'
+    | '/yodhaPharmacy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/crazyorbit' | '/login' | '/yodhaPharmacy'
-  id: '__root__' | '/' | '/crazyorbit' | '/login' | '/yodhaPharmacy'
+  to:
+    | '/'
+    | '/careers'
+    | '/crazyorbit'
+    | '/login'
+    | '/projects'
+    | '/yodhaPharmacy'
+  id:
+    | '__root__'
+    | '/'
+    | '/careers'
+    | '/crazyorbit'
+    | '/login'
+    | '/projects'
+    | '/yodhaPharmacy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CareersRoute: typeof CareersRoute
   CrazyorbitRoute: typeof CrazyorbitRoute
   LoginRoute: typeof LoginRoute
+  ProjectsRoute: typeof ProjectsRoute
   YodhaPharmacyRoute: typeof YodhaPharmacyRoute
 }
 
@@ -76,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/yodhaPharmacy'
       fullPath: '/yodhaPharmacy'
       preLoaderRoute: typeof YodhaPharmacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -92,6 +138,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CrazyorbitRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,8 +157,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CareersRoute: CareersRoute,
   CrazyorbitRoute: CrazyorbitRoute,
   LoginRoute: LoginRoute,
+  ProjectsRoute: ProjectsRoute,
   YodhaPharmacyRoute: YodhaPharmacyRoute,
 }
 export const routeTree = rootRouteImport
