@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YodhaPharmacyRouteImport } from './routes/yodhaPharmacy'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as CrazyorbitRouteImport } from './routes/crazyorbit'
 import { Route as IndexRouteImport } from './routes/index'
 
 const YodhaPharmacyRoute = YodhaPharmacyRouteImport.update({
@@ -23,6 +24,11 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CrazyorbitRoute = CrazyorbitRouteImport.update({
+  id: '/crazyorbit',
+  path: '/crazyorbit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +37,34 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/crazyorbit': typeof CrazyorbitRoute
   '/login': typeof LoginRoute
   '/yodhaPharmacy': typeof YodhaPharmacyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/crazyorbit': typeof CrazyorbitRoute
   '/login': typeof LoginRoute
   '/yodhaPharmacy': typeof YodhaPharmacyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/crazyorbit': typeof CrazyorbitRoute
   '/login': typeof LoginRoute
   '/yodhaPharmacy': typeof YodhaPharmacyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/yodhaPharmacy'
+  fullPaths: '/' | '/crazyorbit' | '/login' | '/yodhaPharmacy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/yodhaPharmacy'
-  id: '__root__' | '/' | '/login' | '/yodhaPharmacy'
+  to: '/' | '/crazyorbit' | '/login' | '/yodhaPharmacy'
+  id: '__root__' | '/' | '/crazyorbit' | '/login' | '/yodhaPharmacy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CrazyorbitRoute: typeof CrazyorbitRoute
   LoginRoute: typeof LoginRoute
   YodhaPharmacyRoute: typeof YodhaPharmacyRoute
 }
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/crazyorbit': {
+      id: '/crazyorbit'
+      path: '/crazyorbit'
+      fullPath: '/crazyorbit'
+      preLoaderRoute: typeof CrazyorbitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CrazyorbitRoute: CrazyorbitRoute,
   LoginRoute: LoginRoute,
   YodhaPharmacyRoute: YodhaPharmacyRoute,
 }
