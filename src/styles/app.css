@@ -197,3 +197,28 @@ input:-webkit-autofill:active {
     @apply bg-background text-foreground;
   }
 }
+
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 8s linear infinite;
+}
+
+@keyframes marquee-imgs {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee-imgs {
+  animation: marquee-imgs 18s linear infinite;
+}
+
+@keyframes slide-carousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-slide-carousel {
+  animation: slide-carousel 18s linear infinite;
+}

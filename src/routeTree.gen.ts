@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as YodhaPharmacyRouteImport } from './routes/yodhaPharmacy'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as HomeRouteImport } from './routes/home'
 import { Route as CrazyorbitRouteImport } from './routes/crazyorbit'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as IndexRouteImport } from './routes/index'
@@ -29,6 +30,11 @@ const ProjectsRoute = ProjectsRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CrazyorbitRoute = CrazyorbitRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/careers': typeof CareersRoute
   '/crazyorbit': typeof CrazyorbitRoute
+  '/home': typeof HomeRoute
   '/login': typeof LoginRoute
   '/projects': typeof ProjectsRoute
   '/yodhaPharmacy': typeof YodhaPharmacyRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/careers': typeof CareersRoute
   '/crazyorbit': typeof CrazyorbitRoute
+  '/home': typeof HomeRoute
   '/login': typeof LoginRoute
   '/projects': typeof ProjectsRoute
   '/yodhaPharmacy': typeof YodhaPharmacyRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/careers': typeof CareersRoute
   '/crazyorbit': typeof CrazyorbitRoute
+  '/home': typeof HomeRoute
   '/login': typeof LoginRoute
   '/projects': typeof ProjectsRoute
   '/yodhaPharmacy': typeof YodhaPharmacyRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/careers'
     | '/crazyorbit'
+    | '/home'
     | '/login'
     | '/projects'
     | '/yodhaPharmacy'
@@ -86,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/careers'
     | '/crazyorbit'
+    | '/home'
     | '/login'
     | '/projects'
     | '/yodhaPharmacy'
@@ -94,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/careers'
     | '/crazyorbit'
+    | '/home'
     | '/login'
     | '/projects'
     | '/yodhaPharmacy'
@@ -103,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CareersRoute: typeof CareersRoute
   CrazyorbitRoute: typeof CrazyorbitRoute
+  HomeRoute: typeof HomeRoute
   LoginRoute: typeof LoginRoute
   ProjectsRoute: typeof ProjectsRoute
   YodhaPharmacyRoute: typeof YodhaPharmacyRoute
@@ -129,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/crazyorbit': {
@@ -159,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CareersRoute: CareersRoute,
   CrazyorbitRoute: CrazyorbitRoute,
+  HomeRoute: HomeRoute,
   LoginRoute: LoginRoute,
   ProjectsRoute: ProjectsRoute,
   YodhaPharmacyRoute: YodhaPharmacyRoute,
