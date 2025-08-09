@@ -14,3 +14,5 @@ node_modules
 .env
 # Package lock files (optional, can be included if needed for reproducibility)
 package-lock.json
+
+reusableCodeForTheFieldSettings

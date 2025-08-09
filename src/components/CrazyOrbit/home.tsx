@@ -15,8 +15,8 @@ const InfiniteScrollText = () => (
         backgroundClip: "border-box",
       }}
     >
-      Digital Creative Agency &nbsp; Digital Creative Agency &nbsp; Digital
-      Creative Agency &nbsp; Digital Creative Agency &nbsp;
+      Digital Creative Agency  <img src="images/Star-3.svg" alt="CrazyOrbit Logo" className=" inline-block" /> Digital Creative Agency  <img src="images/Star-3.svg" alt="CrazyOrbit Logo" className=" inline-block" />  Digital
+      Creative Agency <img src="images/Star-3.svg" alt="CrazyOrbit Logo" className=" inline-block" />  Digital Creative Agency  <img src="images/Star-3.svg" alt="CrazyOrbit Logo" className=" inline-block" />
     </div>
   </div>
 );
@@ -25,24 +25,49 @@ const processImages = [1, 2, 3, 5, 7, 8].map((n) => `/images/image-${n}.webp`);
 
 function SlideshowImages() {
   const [index, setIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const images = [...processImages, processImages[0]]; // duplicate first image for seamless loop
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % processImages.length);
+      setIndex((prev) => prev + 1);
+      setIsTransitioning(true);
     }, 2200);
     return () => clearInterval(interval);
   }, []);
+
+  // When the last (duplicate) image is reached, reset to 0 instantly (no transition)
+  useEffect(() => {
+    if (index === images.length - 1) {
+      const timeout = setTimeout(() => {
+        setIsTransitioning(false);
+        setIndex(0);
+      }, 700); // match duration-700
+      return () => clearTimeout(timeout);
+    } else {
+      setIsTransitioning(true);
+    }
+  }, [index, images.length]);
+
   return (
     <div className="flex-1 flex items-center justify-center md:w-auto w-1/4">
-      <div className="relative w-90 h-100">
-        {processImages.map((src, i) => (
-          <img
-            key={i}
-            src={src}
-            alt={`Process ${i + 1}`}
-            className={`absolute top-0 left-0 w-100 h-100 object-cover rounded-3xl transition-opacity duration-700 ${index === i ? "opacity-100 z-10" : "opacity-0 z-0"}`}
-            style={{ transitionProperty: "opacity" }}
-          />
-        ))}
+      <div className="relative overflow-hidden w-90 h-100">
+        <div
+          className={`flex ${isTransitioning ? "transition-transform duration-700" : ""}`}
+          style={{
+            transform: `translateX(-${index * 100}%)`,
+          }}
+        >
+          {images.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`Process ${(i % processImages.length) + 1}`}
+              className="w-90 h-100 object-cover rounded-3xl flex-shrink-0"
+              style={{ minWidth: "100%", minHeight: "100%" }}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -114,6 +139,7 @@ const Home = () => {
         <p className="text-3xl">and insightful consulting.</p>
       </div>
       {/* Add more sections as needed */}
+      <section></section>
 
       {/* Our Process Section with scrolling images */}
       <section className="w-full bg-black py-20 flex flex-col md:flex-row items-center justify-center gap-12 px-4 md:px-20">
@@ -220,6 +246,24 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section className="flex flex-col w-full md:flex-row gap-12 items-center justify-between">
+        <div>
+          <h3 className="text-base px-24">CAPABILITIES</h3>
+          <div className="text-4xl px-24">
+            {" "}
+            <p> We combine strategic </p> <br /> <p>appproch with studio</p>{" "}
+            <br /> <p>like creativity</p>{" "}
+          </div>
+          <div>
+            <img src="/images/capabilities.webp" alt="capabilities" className="w-180"/>
+          </div>
+        </div>
+         <div>
+            <img src="/images/review-1.svg" alt="review-1" />
+            <img src="/images/network-1.svg" alt="network-1" />
+          </div>
+      
       </section>
 
       <Footer />
