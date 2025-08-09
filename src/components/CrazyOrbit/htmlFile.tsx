@@ -1445,7 +1445,7 @@ export function CrazyOrbitIndex() {
                     playsInline
                   >
                     <source
-                      src="images/carrers-video.mp4"
+                      src="images/careers-video.mp4"
                       type="video/mp4"
                       //   text="HEllo"
                     />
