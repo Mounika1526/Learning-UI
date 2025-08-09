@@ -722,7 +722,7 @@ export function CrazyOrbitIndex() {
                     <div className="rounded-3xl border-[1px] border-[#ffffff] h-[210px] w-[80%] 2xl:h-[330px] p-[18px] m-6">
                       <div className="flex-col">
                         <img
-                          src="Images/review 1.svg"
+                          src="images/review-1.svg"
                           className="h-[60px] pl-5 2xl:w-[200px] 2xl:h-[120px]"
                         />
                         <h2 className="text-[20px] font-[200] md:text-[23px] 2xl:text-[37px] font-Outfit text-white pt-5">
