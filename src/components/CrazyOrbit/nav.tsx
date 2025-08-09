@@ -9,13 +9,10 @@ const Navbar = () => {
         className="h-12"
       />
       <div className="flex space-x-5 items-center text-lg">
-        <a href="/home" className="text-white hover:text-pink-400">
+        <a href="/home" className=" text-pink-400 border-b-2 border-pink-400">
           Home
         </a>
-        <a
-          href="/crazyorbit"
-          className="text-pink-400 border-b-2 border-pink-400"
-        >
+        <a href="/crazyorbit" className="text-white hover:text-pink-400">
           About Us
         </a>
         {/* Services Dropdown */}
@@ -70,7 +67,10 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="block px-6 text-white hover:text-pink-600 transition">
+                <a
+                  href="#"
+                  className="block px-6 text-white hover:text-pink-600 transition"
+                >
                   Custom Ecommerce Design
                 </a>
               </li>
