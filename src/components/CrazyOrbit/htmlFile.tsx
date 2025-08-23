@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./nav";
+import { ChevronDown, Menu } from "lucide-react";
 
 const processImages = [1, 2, 3, 5, 7, 8].map((n) => `/images/image-${n}.webp`);
 function SlideshowImages() {
@@ -53,6 +54,10 @@ function SlideshowImages() {
   );
 }
 export function CrazyOrbitIndex() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
+
   return (
     <>
       <meta charSet="UTF-8" />
@@ -75,8 +80,162 @@ export function CrazyOrbitIndex() {
             '\n      body {\n        overflow-x: hidden;\n      }\n\n      #navbar {\n        position: fixed;\n        top: 0;\n        left: 0;\n        width: 100%;\n\n        text-align: center;\n\n        /*Define a height for NavBar*/\n        height: 80px;\n        transition: 0.5s;\n        /*and a transition time for a smooth appearence*/\n      }\n      .section_1_style {\n        background: linear-gradient(\n          180deg,\n          #2c79db66 0%,\n          rgba(255, 255, 255, 0) 30%\n        );\n      }\n\n      .background {\n        background: linear-gradient(\n          90.16deg,\n          #05f4f06b -0.32%,\n          #044eb080 26.61%,\n          #6802f780 52.28%,\n          #f5057580 80.48%\n        );\n        background-size: cover;\n      }\n      .head-scroll-scrolling {\n        background: -webkit-linear-gradient(\n          -86deg,\n          #0332ef 5%,\n          #f30387 53%,\n          #02807a 91%\n        );\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 2px transparent;\n        webkit-text-stroke-width: 2.4893640279769897;\n        color: #050505;\n        font-size: clamp(2.4rem, 6.61vw, 7.93rem) !important;\n\n        font-weight: 500;\n        letter-spacing: 3px;\n        border: #f0e6e6;\n      }\n\n      .mobile_gradient {\n        background: -webkit-linear-gradient(\n          -86deg,\n          #0332ef 5%,\n          #f30387 53%,\n          #02807a 91%\n        );\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 2px transparent;\n        color: #050505;\n        font-size: clamp(2.4rem, 6.61vw, 7.93rem) !important;\n        color: transparent;\n        font-weight: 500;\n        letter-spacing: 3px;\n\n        border: #f0e6e6;\n\n        background: url("/images/graphic.webp") center center;\n        background-size: cover;\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 3px;\n        font-weight: 400;\n        letter-spacing: 2.716px;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        color: transparent;\n      }\n\n      .head-scroll {\n        background: #06d1ce;\n        -webkit-background-clip: text;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        font-family: Outfit;\n        font-style: normal;\n        font-weight: 600;\n        line-height: 100%; /* 188.653px */\n        letter-spacing: -3.716px;\n        text-transform: uppercase;\n        -webkit-text-stroke: 3px transparent;\n        color: #050505;\n      }\n      .group:hover .head-scroll {\n        background: url("/images/graphic.webp") center center;\n        background-size: cover;\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 3px;\n        font-weight: 400;\n        letter-spacing: -3.716px;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        color: transparent; /* Ensures the image is visible */\n      }\n      .head-scroll1 {\n        background: #2c79db;\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 2px transparent;\n        color: #050505;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        font-family: Outfit;\n        font-size: 158.653px;\n        font-style: normal;\n        font-weight: 600;\n        line-height: 100%; /* 188.653px */\n        letter-spacing: -3.716px;\n        text-transform: uppercase;\n      }\n      .group:hover .head-scroll1 {\n        background: url("/images/wordpress.webp") center center;\n        background-size: cover;\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 3px;\n        font-weight: 400;\n        letter-spacing: -3.716px;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        color: transparent; /* Ensures the image is visible */\n      }\n      .head-scroll2 {\n        background: #f30387;\n        -webkit-background-clip: text;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        font-family: Outfit;\n        font-size: 158.653px;\n        font-style: normal;\n        font-weight: 600;\n        line-height: 100%; /* 188.653px */\n        letter-spacing: -3.716px;\n        text-transform: uppercase;\n        -webkit-text-stroke: 2px transparent;\n        color: #050505;\n      }\n      .group:hover .head-scroll2 {\n        background: url("/images/ecommerce.webp") center center;\n        background-size: cover;\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 3px;\n        font-weight: 400;\n        letter-spacing: -3.716px;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        color: transparent; /* Ensures the image is visible */\n      }\n      .head-scroll3 {\n        background: #6100eb;\n        -webkit-background-clip: text;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        font-family: Outfit;\n        font-size: 158.653px;\n        font-style: normal;\n        font-weight: 600;\n        line-height: 100%; /* 188.653px */\n        letter-spacing: -3.716px;\n        text-transform: uppercase;\n        -webkit-text-stroke: 2px transparent;\n        color: #050505;\n      }\n\n      .group:hover .head-scroll3 {\n        background: url("/images/development.webp") center center;\n        background-size: cover;\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 3px;\n        font-weight: 400;\n        letter-spacing: -3.716px;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        color: transparent;\n      }\n\n      @keyframes infiniteScroll {\n        from {\n          transform: translateX(0);\n        }\n        to {\n          transform: translateX(-100vw);\n        }\n      }\n\n      .container {\n        width: 100vw;\n        overflow: hidden;\n      }\n\n      .horizontal-scrolling-items {\n        display: flex;\n        font-size: 90px;\n\n        animation: infiniteScroll 10s linear infinite;\n      }\n\n      .horizontal-scrolling-items__item {\n        white-space: nowrap;\n        flex-shrink: 0;\n      }\n\n      .animate-left-to-right {\n        opacity: 0;\n        transform: translateX(-100%);\n        transition: all 0.9s ease-in-out;\n      }\n\n      .animate-left-to-right-show {\n        opacity: 1;\n        transform: translateX(0);\n      }\n\n      .head_style {\n        background: linear-gradient(\n          180deg,\n          #2c79db66 0%,\n          rgba(255, 255, 255, 0) 30%\n        );\n\n           }\n      .nav_color {\n        /* background: #132d50; */\n        background: #2c79db66;\n        opacity: 0;\n      }\n    ',
         }}
       />
-      <Navbar />
-      <header className="sticky top-0 z-10 nav_color opacity-[100%] overflow-hidden"></header>
+      {/* <Navbar /> */}
+    <header className="sticky top-0 z-10 bg-[#1a3352]">
+      <nav className="flex flex-row items-center justify-between text-[19px] leading-7 pt-3 py-2 px-6">
+        {/* Logo */}
+        <div className="flex flex-row gap-6">
+          <img
+            src="https://crazyorbit-dev.netlify.app/img/main-logo.png"
+            className="w-[109.08px] h-[48.5px]"
+            alt="Logo"
+          />
+        </div>
+
+        {/* Mobile menu button */}
+        <div className="lg:hidden">
+          <button onClick={() => setMobileOpen((prev) => !prev)}>
+            <Menu className="w-8 h-10 text-white" />
+          </button>
+        </div>
+
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex flex-row space-x-9 text-gray-700 md:mr-6 mt-1">
+          <ul className="flex flex-row space-x-8 text-gray-700">
+            <li>
+              <a href="index.html" className="text-[#FE0078] font-Outfit font-[300]">
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="AboutUs.html"
+                className="text-white font-Outfit hover:text-[#FE0078] font-[200]"
+              >
+                About Us
+              </a>
+            </li>
+            <li className="relative">
+              <button
+                onClick={() => setDesktopServicesOpen((prev) => !prev)}
+                className="text-white font-Outfit hover:text-[#FE0078] font-[200] flex items-center"
+              >
+                Services
+                <ChevronDown className="ml-2 w-4 h-4" />
+              </button>
+              {desktopServicesOpen && (
+                <div className="absolute bg-[#1a3352] text-white mt-1 shadow-lg rounded-md w-[300px]">
+                  {[
+                    "Digital Marketing",
+                    "Graphical Designing",
+                    "Wordpress Development",
+                    "Web Development",
+                    "Custom Ecommerce Designs",
+                    "Mobile and Responsive Design",
+                    "Search Engine Optimization",
+                  ].map((service) => (
+                    <a
+                      key={service}
+                      href="#"
+                      className="block px-4 py-2 hover:text-[#FE0078]"
+                    >
+                      {service}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </li>
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#FE0078] font-[200] font-Outfit text-white"
+              >
+                Careers
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="hover:text-[#FE0078] font-[200] font-Outfit text-white"
+              >
+                Our Projects
+              </a>
+            </li>
+          </ul>
+          <button className="w-[103px] h-[30px] font-Outfit text-xs text-white bg-[#FE0078]">
+            Work With Us
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Nav */}
+      {mobileOpen && (
+        <div className="bg-[#1a3352] lg:hidden ">
+          <ul className="flex flex-col space-y-4 text-gray-700 p-6 items-center">
+            <li>
+              <a href="index.html" className="text-[#FE0078] font-Outfit font-[200]">
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="AboutUs.html"
+                className="text-white hover:text-[#FE0078] font-Outfit font-[200]"
+              >
+                About Us
+              </a>
+            </li>
+            <li className="relative ">
+              <button
+                onClick={() => setMobileServicesOpen((prev) => !prev)}
+                className="text-white font-Outfit hover:text-[#FE0078] font-[200] flex items-center"
+              >
+                Services
+                <ChevronDown className="ml-2 w-4 h-4" />
+              </button>
+              {mobileServicesOpen && (
+                <div className="bg-black text-white mt-1 shadow-lg rounded-md w-[300px] ">
+                  {[
+                    "Digital Marketing",
+                    "Graphical Designing",
+                    "Wordpress Development",
+                    "Web Development",
+                    "Custom Ecommerce Designs",
+                    "Mobile and Responsive Design",
+                    "Search Engine Optimization",
+                  ].map((service) => (
+                    <a
+                      key={service}
+                      href="#"
+                      className="block px-4 py-2 hover:text-[#FE0078]"
+                    >
+                      {service}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-white hover:text-[#FE0078] font-Outfit font-[200]"
+              >
+                Careers
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="text-white hover:text-[#FE0078] font-Outfit font-[200]"
+              >
+                Our Projects
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
+    </header>
+      {/* <header className="sticky top-0 z-10 nav_color opacity-[100%] overflow-hidden"></header> */}
       <main className="bg-[#030303] font-Outfit">
         {/*Banner*/}
         <section className="overflow-hidden pt-[10px] 2xl:pt-[60px] section_1_style">
@@ -124,7 +283,7 @@ export function CrazyOrbitIndex() {
           </div>
         </section>
         <section>
-          <div className="container font-[200] my-3 xl:my-5">
+          <div className="container font-[200] my-3 xl:my-5 w-full">
             <div className="horizontal-scrolling-items">
               <div className="horizontal-scrolling-items__item head-scroll-scrolling text-[35px] md:text-[85px] xl:text-[95px]">
                 Digital Creative Agency &nbsp;
