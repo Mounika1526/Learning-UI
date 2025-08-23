@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./nav";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 const processImages = [1, 2, 3, 5, 7, 8].map((n) => `/images/image-${n}.webp`);
 function SlideshowImages() {
@@ -53,6 +54,18 @@ function SlideshowImages() {
   );
 }
 export function CrazyOrbitIndex() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
+  const images = [
+    "images/image-1.webp",
+    "images/image-2.webp",
+    "images/image-3.webp",
+    "images/image-5.webp",
+    "images/image-7.webp",
+    "images/image8.webp",
+  ];
+
   return (
     <>
       <meta charSet="UTF-8" />
@@ -75,8 +88,173 @@ export function CrazyOrbitIndex() {
             '\n      body {\n        overflow-x: hidden;\n      }\n\n      #navbar {\n        position: fixed;\n        top: 0;\n        left: 0;\n        width: 100%;\n\n        text-align: center;\n\n        /*Define a height for NavBar*/\n        height: 80px;\n        transition: 0.5s;\n        /*and a transition time for a smooth appearence*/\n      }\n      .section_1_style {\n        background: linear-gradient(\n          180deg,\n          #2c79db66 0%,\n          rgba(255, 255, 255, 0) 30%\n        );\n      }\n\n      .background {\n        background: linear-gradient(\n          90.16deg,\n          #05f4f06b -0.32%,\n          #044eb080 26.61%,\n          #6802f780 52.28%,\n          #f5057580 80.48%\n        );\n        background-size: cover;\n      }\n      .head-scroll-scrolling {\n        background: -webkit-linear-gradient(\n          -86deg,\n          #0332ef 5%,\n          #f30387 53%,\n          #02807a 91%\n        );\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 2px transparent;\n        webkit-text-stroke-width: 2.4893640279769897;\n        color: #050505;\n        font-size: clamp(2.4rem, 6.61vw, 7.93rem) !important;\n\n        font-weight: 500;\n        letter-spacing: 3px;\n        border: #f0e6e6;\n      }\n\n      .mobile_gradient {\n        background: -webkit-linear-gradient(\n          -86deg,\n          #0332ef 5%,\n          #f30387 53%,\n          #02807a 91%\n        );\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 2px transparent;\n        color: #050505;\n        font-size: clamp(2.4rem, 6.61vw, 7.93rem) !important;\n        color: transparent;\n        font-weight: 500;\n        letter-spacing: 3px;\n\n        border: #f0e6e6;\n\n        background: url("/images/graphic.webp") center center;\n        background-size: cover;\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 3px;\n        font-weight: 400;\n        letter-spacing: 2.716px;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        color: transparent;\n      }\n\n      .head-scroll {\n        background: #06d1ce;\n        -webkit-background-clip: text;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        font-family: Outfit;\n        font-style: normal;\n        font-weight: 600;\n        line-height: 100%; /* 188.653px */\n        letter-spacing: -3.716px;\n        text-transform: uppercase;\n        -webkit-text-stroke: 3px transparent;\n        color: #050505;\n      }\n      .group:hover .head-scroll {\n        background: url("/images/graphic.webp") center center;\n        background-size: cover;\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 3px;\n        font-weight: 400;\n        letter-spacing: -3.716px;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        color: transparent; /* Ensures the image is visible */\n      }\n      .head-scroll1 {\n        background: #2c79db;\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 2px transparent;\n        color: #050505;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        font-family: Outfit;\n        font-size: 158.653px;\n        font-style: normal;\n        font-weight: 600;\n        line-height: 100%; /* 188.653px */\n        letter-spacing: -3.716px;\n        text-transform: uppercase;\n      }\n      .group:hover .head-scroll1 {\n        background: url("/images/wordpress.webp") center center;\n        background-size: cover;\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 3px;\n        font-weight: 400;\n        letter-spacing: -3.716px;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        color: transparent; /* Ensures the image is visible */\n      }\n      .head-scroll2 {\n        background: #f30387;\n        -webkit-background-clip: text;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        font-family: Outfit;\n        font-size: 158.653px;\n        font-style: normal;\n        font-weight: 600;\n        line-height: 100%; /* 188.653px */\n        letter-spacing: -3.716px;\n        text-transform: uppercase;\n        -webkit-text-stroke: 2px transparent;\n        color: #050505;\n      }\n      .group:hover .head-scroll2 {\n        background: url("/images/ecommerce.webp") center center;\n        background-size: cover;\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 3px;\n        font-weight: 400;\n        letter-spacing: -3.716px;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        color: transparent; /* Ensures the image is visible */\n      }\n      .head-scroll3 {\n        background: #6100eb;\n        -webkit-background-clip: text;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        font-family: Outfit;\n        font-size: 158.653px;\n        font-style: normal;\n        font-weight: 600;\n        line-height: 100%; /* 188.653px */\n        letter-spacing: -3.716px;\n        text-transform: uppercase;\n        -webkit-text-stroke: 2px transparent;\n        color: #050505;\n      }\n\n      .group:hover .head-scroll3 {\n        background: url("/images/development.webp") center center;\n        background-size: cover;\n        -webkit-background-clip: text;\n        -webkit-text-stroke: 3px;\n        font-weight: 400;\n        letter-spacing: -3.716px;\n        -webkit-text-stroke-width: 1.4893640279769897;\n        color: transparent;\n      }\n\n      @keyframes infiniteScroll {\n        from {\n          transform: translateX(0);\n        }\n        to {\n          transform: translateX(-100vw);\n        }\n      }\n\n      .container {\n        width: 100vw;\n        overflow: hidden;\n      }\n\n      .horizontal-scrolling-items {\n        display: flex;\n        font-size: 90px;\n\n        animation: infiniteScroll 10s linear infinite;\n      }\n\n      .horizontal-scrolling-items__item {\n        white-space: nowrap;\n        flex-shrink: 0;\n      }\n\n      .animate-left-to-right {\n        opacity: 0;\n        transform: translateX(-100%);\n        transition: all 0.9s ease-in-out;\n      }\n\n      .animate-left-to-right-show {\n        opacity: 1;\n        transform: translateX(0);\n      }\n\n      .head_style {\n        background: linear-gradient(\n          180deg,\n          #2c79db66 0%,\n          rgba(255, 255, 255, 0) 30%\n        );\n\n           }\n      .nav_color {\n        /* background: #132d50; */\n        background: #2c79db66;\n        opacity: 0;\n      }\n    ',
         }}
       />
-      <Navbar />
-      <header className="sticky top-0 z-10 nav_color opacity-[100%] overflow-hidden"></header>
+      {/* <Navbar /> */}
+      <header className="sticky top-0 z-10 bg-[#1a3352]">
+        <nav className="flex flex-row items-center justify-between text-[19px] leading-7 pt-3 py-2 px-6">
+          {/* Logo */}
+          <div className="flex flex-row gap-6">
+            <img
+              src="https://crazyorbit-dev.netlify.app/img/main-logo.png"
+              className="w-[109.08px] h-[48.5px]"
+              alt="Logo"
+            />
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="lg:hidden">
+            <button onClick={() => setMobileOpen((prev) => !prev)}>
+              {/* <Menu className="w-8 h-10 text-white" /> */}
+              {mobileOpen ? (
+                <X className="w-8 h-10 text-white" />
+              ) : (
+                <Menu className="w-8 h-10 text-white" />
+              )}
+            </button>
+          </div>
+
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex flex-row space-x-9 text-gray-700 md:mr-6 mt-1">
+            <ul className="flex flex-row space-x-8 text-gray-700">
+              <li>
+                <a
+                  href="index.html"
+                  className="text-[#FE0078] font-Outfit font-[300]"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="AboutUs.html"
+                  className="text-white font-Outfit hover:text-[#FE0078] font-[200]"
+                >
+                  About Us
+                </a>
+              </li>
+              <li className="relative">
+                <button
+                  onClick={() => setDesktopServicesOpen((prev) => !prev)}
+                  className="text-white font-Outfit hover:text-[#FE0078] font-[200] flex items-center"
+                >
+                  Services
+                  <ChevronDown className="ml-2 w-4 h-4" />
+                </button>
+                {desktopServicesOpen && (
+                  <div className="absolute bg-[#1a3352] text-white mt-1 shadow-lg rounded-md w-[300px]">
+                    {[
+                      "Digital Marketing",
+                      "Graphical Designing",
+                      "Wordpress Development",
+                      "Web Development",
+                      "Custom Ecommerce Designs",
+                      "Mobile and Responsive Design",
+                      "Search Engine Optimization",
+                    ].map((service) => (
+                      <a
+                        key={service}
+                        href="#"
+                        className="block px-4 py-2 hover:text-[#FE0078]"
+                      >
+                        {service}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="hover:text-[#FE0078] font-[200] font-Outfit text-white"
+                >
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="hover:text-[#FE0078] font-[200] font-Outfit text-white"
+                >
+                  Our Projects
+                </a>
+              </li>
+            </ul>
+            <button className="w-[103px] h-[30px] font-Outfit text-xs text-white bg-[#FE0078]">
+              Work With Us
+            </button>
+          </div>
+        </nav>
+
+        {/* Mobile Nav */}
+        {mobileOpen && (
+          <div className="bg-[#1a3352] lg:hidden ">
+            <ul className="flex flex-col space-y-4 text-gray-700 p-6 items-center">
+              <li>
+                <a
+                  href="index.html"
+                  className="text-[#FE0078] font-Outfit font-[200]"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="AboutUs.html"
+                  className="text-white hover:text-[#FE0078] font-Outfit font-[200]"
+                >
+                  About Us
+                </a>
+              </li>
+              <li className="relative ">
+                <button
+                  onClick={() => setMobileServicesOpen((prev) => !prev)}
+                  className="text-white font-Outfit hover:text-[#FE0078] font-[200] flex items-center"
+                >
+                  Services
+                  <ChevronDown className="ml-2 w-4 h-4" />
+                </button>
+                {mobileServicesOpen && (
+                  <div className="bg-black text-white mt-1 shadow-lg rounded-md w-[300px] ">
+                    {[
+                      "Digital Marketing",
+                      "Graphical Designing",
+                      "Wordpress Development",
+                      "Web Development",
+                      "Custom Ecommerce Designs",
+                      "Mobile and Responsive Design",
+                      "Search Engine Optimization",
+                    ].map((service) => (
+                      <a
+                        key={service}
+                        href="#"
+                        className="block px-4 py-2 hover:text-[#FE0078]"
+                      >
+                        {service}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-white hover:text-[#FE0078] font-Outfit font-[200]"
+                >
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="text-white hover:text-[#FE0078] font-Outfit font-[200]"
+                >
+                  Our Projects
+                </a>
+              </li>
+            </ul>
+          </div>
+        )}
+      </header>
+      {/* <header className="sticky top-0 z-10 nav_color opacity-[100%] overflow-hidden"></header> */}
       <main className="bg-[#030303] font-Outfit">
         {/*Banner*/}
         <section className="overflow-hidden pt-[10px] 2xl:pt-[60px] section_1_style">
@@ -124,25 +302,23 @@ export function CrazyOrbitIndex() {
           </div>
         </section>
         <section>
-          <div className="container font-[200] my-3 xl:my-5">
-            <div className="horizontal-scrolling-items">
+          <div className=" container font-[200] my-3 xl:my-5">
+            <div className="horizontal-scrolling-items ">
               <div className="horizontal-scrolling-items__item head-scroll-scrolling text-[35px] md:text-[85px] xl:text-[95px]">
                 Digital Creative Agency &nbsp;
               </div>
-              <div className="horizontal-scrolling-items__item head-scroll-scrolling pt-1 text-[35px] md:text-[85px] xl:text-[95px]">
+              <div className="horizontal-scrolling-items__item head-scroll-scrolling pt-1 text-[35px] md:text-[85px] xl:text-[95px] ">
                 <img
                   src="images/Star-3.svg"
-                  alt="CrazyOrbit Logo"
-                  className=" inline-block"
-                />
+                  className="inline-block h-[30px] md:h-[90px]"
+                />{" "}
                 &nbsp; Digital Creative Agency &nbsp;
               </div>
-              <div className="horizontal-scrolling-items__item head-scroll-scrolling text-[35px] md:text-[85px] xl:text-[95px]">
+              <div className="horizontal-scrolling-items__item head-scroll-scrolling  text-[35px] md:text-[85px] xl:text-[95px] ">
                 <img
                   src="images/Star-3.svg"
-                  alt="CrazyOrbit Logo"
-                  className=" inline-block"
-                />
+                  className="inline-block h-[30px] md:h-[90px]"
+                />{" "}
                 &nbsp; Digital Creative Agency
               </div>
             </div>
@@ -151,48 +327,42 @@ export function CrazyOrbitIndex() {
         {/* Horizontal Scrolling  */}
         <section className="overflow-hidden">
           <div className="flex justify-center text-white mt-1 lg:mt-12">
-            <div className="flex flex-col justify-center items-center text-center p-12">
+            <div className="flex flex-col justify-center items-center text-center p-12 ">
               {/* <p class="text-white text-[18px]  md:text-[40px] font-[200px] text-center m-6"> */}
-              <h4 className="text-[18px] md:text-2xl font-Outfit font-[200] xl:text-3xl 2xl:text-5xl 2xl:mb-1">
+              <h4 className="text-[18px] md:text-2xl font-Outfit font-[200]  xl:text-3xl 2xl:text-5xl 2xl:mb-1">
                 You Bring The Vision We Bring The Interface
               </h4>
-              <h4 className="text-[18px] font-Outfit font-[200] flex md:text-2xl xl:text-3xl md:pt-2 2xl:text-5xl">
-                <span className="text-[#FE0078] pl-1 mr-2"> CrazyOrbit </span>{" "}
-                is an innovative
+              <h4 className="text-[18px]   font-Outfit font-[200]  flex md:text-2xl xl:text-3xl md:pt-2 2xl:text-5xl ">
+                <span className="text-[#FE0078] pl-1 mr-2 ">CrazyOrbit </span>{" "}
+                is an innovative{" "}
                 <img
-                  src="/images/abstract2.svg"
-                  alt="Abstract2"
-                  className="inline w-8 h-8"
+                  src="images/abstract2.svg"
+                  className="h-auto w-5 md:w-8 2xl:w-[60px] mx-1 2xl:my-2"
                 />
                 <span className="hidden lg:block ml-2"> design agency. </span>
               </h4>
-              <h4 className="flex flex-row text-[18px] font-Outfit font-[200] md:text-2xl xl:text-3xl 2xl:text-5xl">
+              <h4 className="flex flex-row text-[18px]  font-Outfit font-[200]  flex md:text-2xl xl:text-3xl 2xl:text-5xl ">
                 <span className="lg:hidden md:block pr-1 underline">
+                  {" "}
                   design agency.
                 </span>
               </h4>
-              <h5 className="text-[18px] font-Outfit font-[200] flex leading-relaxed md:text-2xl xl:text-3xl 2xl:text-5xl">
+              <h5 className="text-[18px]  font-Outfit font-[200] flex leading-relaxed md:text-2xl xl:text-3xl 2xl:text-5xl">
                 that crafts captivating
-                {/* <img
-                  src="/Images/Abstract1.svg"
-                  className="h-auto w-5 md:w-8 mx-2 2xl:w-[60px]"
-                /> */}
                 <img
                   src="/images/Abstract1.svg"
-                  alt="Abstract2"
-                  className="inline w-8 h-8"
+                  className="h-auto w-5 md:w-8 mx-2  2xl:w-[60px]  "
                 />
                 digital
                 <img
                   src="/images/abstract3.svg"
-                  alt="Abstract2"
-                  className="inline w-8 h-8"
+                  className="h-auto w-5 md:w-8 mx-2  2xl:w-[60px] "
                 />
               </h5>
-              <h5 className="text-[18px] font-Outfit font-[200] flex leading-relaxed md:text-2xl xl:text-3xl 2xl:text-5xl 2xl:mt-1 2xl:mb-2">
+              <h5 className="text-[18px]  font-Outfit font-[200] flex leading-relaxed  md:text-2xl xl:text-3xl 2xl:text-5xl 2xl:mt-1 2xl:mb-2 ">
                 platforms,unforgettable brand experiences,
               </h5>
-              <span className="text-[18px] font-Outfit font-[200] flex leading-relaxed md:mb-6 md:text-2xl xl:text-3xl 2xl:text-5xl">
+              <span className="text-[18px]  font-Outfit font-[200] flex leading-relaxed md:mb-6 md:text-2xl xl:text-3xl 2xl:text-5xl">
                 and insightful consulting.
               </span>
               {/* <div class="text-lg font-extralight flex flex-col">
@@ -205,20 +375,20 @@ export function CrazyOrbitIndex() {
             </button>
           </div>
         </section>
-        <section className="overflow-hidden my-6">
-          <div className="md:ml-0 mt-9">
+        <section className="overflow-hidden  my-6">
+          <div className=" md:ml-0 mt-9 ">
             <div className="flex justify-center">
-              <h1 className="text-[#ffffff] font-[300] font-Outfit mb-3 text-[30px] lg:text-[55.6px]">
+              <h1 className="text-[#ffffff] font-[300] font-Outfit  mb-3 text-[30px] lg:text-[55.6px]">
                 Our Services
               </h1>
             </div>
-            <div className="flex flex-col justify-center items-center lg:block lg:mx-[70px] 2xl:mx-[90px]">
-              <div className="relative mb-6 lg:mb-0 group">
-                <div className="relative group lg:mb-0 lg:flex justify-center items-center w-fit group">
-                  <h2 className="head-scroll text-[50px] font-Outfit hidden lg:block md:text-[95px] xl:text-[120px] 2xl:text-[160px] group-hover:transition duration-300">
+            <div className="flex flex-col justify-center items-center  lg:block lg:mx-[70px] 2xl:mx-[90px]  ">
+              <div className="relative mb-6 lg:mb-0 group ">
+                <div className="relative group  lg:mb-0 lg:flex justify-center items-center w-fit group  ">
+                  <h2 className="head-scroll text-[50px] font-Outfit hidden lg:block  md:text-[95px] xl:text-[120px] 2xl:text-[160px] group-hover:transition duration-300">
                     GRAPHIC
                   </h2>
-                  <h2 className="mobile_gradient font-Outfit text-[50px] lg:hidden">
+                  <h2 className="mobile_gradient font-Outfit text-[50px] lg:hidden ">
                     GRAPHIC
                   </h2>
                   <div className="absolute flex flex-row">
@@ -227,26 +397,26 @@ export function CrazyOrbitIndex() {
                     </p>
                     <img
                       src="/images/arrow.svg"
-                      className="hidden lg:block top-full left-0 translate-x-[-100%] text-[10px] lg:text-[20px] text-[#FFFFFF] opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 h-9 pl-6"
+                      className="hidden lg:block top-full left-0 translate-x-[-100%] mb-3 text-[10px] lg:text-[20px] text-white opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 h-9 pl-6"
                     />
                   </div>
-                  <div className="flex flex-row items-center justify-center text-center transform transition-transform duration-500 hover:-translate-x-5">
-                    <p className="text-[10px] md:text-md text-[#FFFFFF] text-center font-Outfit font-[300] font-Outfit lg:hidden">
+                  <div className="flex flex-row items-center justify-center text-center  transform transition-transform duration-500 hover:-translate-x-5">
+                    <p className="text-[10px]  md:text-md text-[#FFFFFF] text-center font-[400] font-Outfit font-[300] font-Outfit lg:hidden">
                       Designing Your Vision to Reality.
                     </p>
-                    {/* <img
+                    <img
                       src="/images/arrow.svg"
-                      className="hidden lg:block top-full left-0 translate-x-[-100%] text-[10px] lg:text-[20px] text-[#FFFFFF] opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 h-9 pl-6"
-                    /> */}
+                      className="lg:hidden h-4 md:h-8 pl-2"
+                    />
                   </div>
                 </div>
               </div>
-              <div className="relative mb-6 lg:mb-0 group">
-                <div className="relative group md:mb-0 lg:flex justify-center items-center group">
-                  <h2 className="head-scroll1 text-[50px] font-Outfit md:text-[90px] hidden lg:block xl:text-[120px] 2xl:text-[160px] group-hover:transition duration-300">
+              <div className="relative  mb-6 lg:mb-0 group">
+                <div className="relative group md:mb-0 lg:flex justify-center items-center group ">
+                  <h2 className="head-scroll1 text-[50px] font-Outfit md:text-[90px] hidden lg:block  xl:text-[120px] 2xl:text-[160px] group-hover:transition duration-300">
                     WORDPRESS
                   </h2>
-                  <h2 className="mobile_gradient font-Outfit text-[50px] lg:hidden">
+                  <h2 className="mobile_gradient font-Outfit text-[50px] lg:hidden ">
                     WORDPRESS
                   </h2>
                   <div className="absolute flex flex-row">
@@ -255,26 +425,26 @@ export function CrazyOrbitIndex() {
                     </p>
                     <img
                       src="/images/arrow.svg"
-                      className="hidden lg:block top-full left-0 translate-x-[-100%] text-[10px] lg:text-[20px] text-[#FFFFFF] opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 h-9 pl-6"
+                      className="hidden lg:block top-full font-[400] font-Outfit left-0 translate-x-[-100%] text-[10px] lg:text-[20px] text-white opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 h-9 pl-6"
                     />
                   </div>
                   <div className="flex flex-row items-center justify-center transform transition-transform duration-500 hover:-translate-x-5">
-                    <p className="text-[10px] md:text-md text-[#FFFFFF] text-center font-Outfit font-[300] font-Outfit lg:hidden">
+                    <p className="text-[10px]  md:text-md text-[#FFFFFF] text-center font-[400] font-Outfit font-[300] font-Outfit lg:hidden">
                       A reliable WordPress development service
                     </p>
-                    {/* <img
+                    <img
                       src="/images/arrow.svg"
-                      className="hidden lg:block top-full left-0 translate-x-[-100%] text-[10px] lg:text-[20px] text-[#FFFFFF] opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 h-9 pl-6"
-                    /> */}
+                      className="lg:hidden h-4 md:h-8 pl-2"
+                    />
                   </div>
                 </div>
               </div>
-              <div className="flex mb-6 lg:mb-0 relative group justify-end">
-                <div className="relative group md:mb-0 font-[300] lg:flex justify-center items-center group">
-                  <h2 className="head-scroll2 text-[50px] font-Outfit md:text-[90px] hidden lg:block xl:text-[120px] 2xl:text-[160px] group-hover:transition duration-300">
+              <div className="flex mb-6 lg:mb-0 relative group justify-end ">
+                <div className="relative group md:mb-0 font-[300] lg:flex justify-center items-center group ">
+                  <h2 className="head-scroll2 text-[50px] font-Outfit  md:text-[90px] hidden lg:block  xl:text-[120px] 2xl:text-[160px] group-hover:transition duration-300">
                     ECOMMERCE
                   </h2>
-                  <h2 className="mobile_gradient font-Outfit text-[50px] lg:hidden">
+                  <h2 className="mobile_gradient font-Outfit text-[50px] lg:hidden ">
                     ECOMMERCE
                   </h2>
                   <div className="absolute flex flex-row justify-center">
@@ -283,26 +453,26 @@ export function CrazyOrbitIndex() {
                     </p>
                     <img
                       src="/images/arrow.svg"
-                      className="hidden lg:block top-full left-0 translate-x-[-100%] text-[10px] lg:text-[20px] text-[#FFFFFF] opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 h-9 pl-6"
+                      className="hidden lg:block top-full left-0 translate-x-[-100%] text-[10px] lg:text-[20px] text-white opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 h-9 pl-6"
                     />
                   </div>
-                  <div className="flex flex-row items-center justify-center transform transition-transform duration-500 hover:-translate-x-5">
-                    <p className="text-[10px] md:text-md text-[#FFFFFF] text-center font-Outfit font-[300] font-Outfit lg:hidden">
+                  <div className="flex flex-row items-center  justify-center transform transition-transform duration-500 hover:-translate-x-5">
+                    <p className="text-[10px]  md:text-md text-[#FFFFFF] text-center font-[400] font-Outfit font-[300] font-Outfit lg:hidden">
                       Way to Success with Our Custom Ecommerce Design
                     </p>
-                    {/* <img
+                    <img
                       src="/images/arrow.svg"
-                      className="hidden lg:block top-full left-0 translate-x-[-100%] text-[10px] lg:text-[20px] text-[#FFFFFF] opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 h-9 pl-6"
-                    /> */}
+                      className="lg:hidden h-4 md:h-8 pl-2"
+                    />
                   </div>
                 </div>
               </div>
               <div className="relative mb-6 lg:mb-0 group">
                 <div className="relative group lg:flex justify-center font-Outfit font-[400] items-center group w-fit">
-                  <h2 className="head-scroll3 text-[50px] md:text-[90px] hidden lg:block xl:text-[120px] 2xl:text-[160px] group-hover:transition duration-300">
+                  <h2 className="head-scroll3 text-[50px] md:text-[90px] hidden lg:block   xl:text-[120px] 2xl:text-[160px] group-hover:transition duration-300">
                     DEVELOPMENT
                   </h2>
-                  <h2 className="mobile_gradient font-Outfit text-[50px] lg:hidden">
+                  <h2 className="mobile_gradient font-Outfit text-[50px] lg:hidden ">
                     DEVELOPMENT
                   </h2>
                   <div className="absolute flex flex-row">
@@ -315,11 +485,11 @@ export function CrazyOrbitIndex() {
                     />
                   </div>
                   <div className="flex flex-row items-center justify-center transform transition-transform duration-500 hover:-translate-x-5">
-                    <p className="text-[10px] md:text-md text-[#FFFFFF] text-center font-Outfit font-[300] font-Outfit lg:hidden">
+                    <p className="text-[10px]  md:text-md text-[#FFFFFF] text-center font-[400] font-Outfit font-[300] font-Outfit lg:hidden">
                       Your Ideas with Our Coding &amp; Web Development Magic.
                     </p>
                     <img
-                      src="/Images/arrow.svg"
+                      src="/images/arrow.svg"
                       className="lg:hidden h-4 md:h-8 pl-2"
                     />
                   </div>
@@ -327,18 +497,113 @@ export function CrazyOrbitIndex() {
               </div>
             </div>
             <br />
-            <section className="w-full bg-black py-20 flex flex-col md:flex-row items-center justify-center gap-12 px-4 md:px-20">
-              {/* Image carousel (horizontal scroll) */}
-              <SlideshowImages />
-              {/* Fixed text content */}
-              <div className="flex-1 max-w-2xl text-left w-3/4">
-                <h2 className="text-lg text-gray-300 mb-2">OUR PROCESS</h2>
-                <h3 className="text-4xl  font-light mb-6">
+            <div className="grid grid-cols-9 gap-9 2xl:gap-0 mt-9 m-6 lg:ml-[80px]">
+              <div className="hidden lg:block col-span-3 2xl:col-span-3  flex justify-center items-center">
+                <div className="swiper-container w-80  h-[450px] md:h-[470px] md:w-[350px] 2xl:h-[580px] 2xl:w-[430px]  border-1 border-gray-300 rounded-3xl overflow-hidden">
+                  <div className="swiper-wrapper">
+                    <div className="swiper-slide">
+                      <img
+                        src="images/image-1.webp"
+                        alt="Slide1"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="swiper-slide">
+                      <img
+                        src="images/image-2.webp"
+                        alt="Slide2"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="swiper-slide">
+                      <img
+                        src="images/image-3.webp"
+                        alt="Slide3"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="swiper-slide">
+                      <img
+                        src="images/image-5.webp"
+                        alt="Slide5"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="swiper-slide">
+                      <img
+                        src="images/image-7.webp"
+                        alt="Slide7"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="swiper-slide">
+                      <img
+                        src="images/image8.webp"
+                        alt="Slide8"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-span-9  lg:col-span-6 2xl:col-span-6 m-2 lg:m- mt-8 md:my-16  lg:my-16  lg:p-[0px]">
+                <div className="col-span-9  my-4 lg:hidden flex justify-center items-center">
+                  <div className="swiper-container w-80  h-[400px] md:h-[470px] md:w-[350px]  border-1 border-gray-300 rounded-3xl overflow-hidden">
+                    <div className="swiper-slide">
+                      <img
+                        src="images/image-1.webp"
+                        alt="Slide1"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="swiper-slide">
+                      <img
+                        src="images/image-2.webp"
+                        alt="Slide2"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="swiper-slide">
+                      <img
+                        src="images/image-3.webp"
+                        alt="Slide3"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="swiper-slide">
+                      <img
+                        src="images/image-5.webp"
+                        alt="Slide5"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="swiper-slide">
+                      <img
+                        src="images/image-7.webp"
+                        alt="Slide7"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="swiper-slide">
+                      <img
+                        src="images/image8.webp"
+                        alt="Slide8"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <h2 className="text-white text-[14px] font-Outfit  md:text-[18px] 2xl:text-[24px] font-[300] ">
+                  OUR PROCESS
+                </h2>
+                <h1 className="text-white text-[27px] font-Outfit  md:text-[33px] 2xl:text-[40px] font-[200]  ">
                   You provide the inspiration,
-                  <br />
-                  We create the plan
-                </h3>
-                <p className="text-base md:text-lg text-gray-300 mb-8">
+                  <span>
+                    <br className="hidden lg:block leading-none" /> We create
+                    the plan
+                  </span>
+                </h1>
+                <p className="text-white text-[15px] lg:text-[16px] 2xl:text-[21px]  my-2 lg:my-0 font-Outfit font-[200]">
                   We specialise in helping businesses reach their goals through
                   creative and effective strategies. Our process is designed to
                   help businesses identify their goals and develop a
@@ -353,11 +618,11 @@ export function CrazyOrbitIndex() {
                   succeed and will provide ongoing support and guidance
                   throughout the process.
                 </p>
-                <button className="bg-violet-700 hover:bg-violet-800 text-white px-8 py-3 rounded-md font-semibold transition">
+                <button className="w-[142px] text-center h-[39px] font-Outfit font-[300] text-md text-white bg-[#6101eb] mt-3 lg:mt-9 hover:bg-white hover:text-black ">
                   Learn More
                 </button>
               </div>
-            </section>
+            </div>
           </div>
         </section>
         <section className="overflow-hidden">
