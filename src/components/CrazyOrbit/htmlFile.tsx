@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./nav";
 import { ChevronDown, Menu, X } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const processImages = [1, 2, 3, 5, 7, 8].map((n) => `/images/image-${n}.webp`);
 function SlideshowImages() {
@@ -499,98 +504,114 @@ export function CrazyOrbitIndex() {
             <br />
             <div className="grid grid-cols-9 gap-9 2xl:gap-0 mt-9 m-6 lg:ml-[80px]">
               <div className="hidden lg:block col-span-3 2xl:col-span-3  flex justify-center items-center">
-                <div className="swiper-container w-80  h-[450px] md:h-[470px] md:w-[350px] 2xl:h-[580px] 2xl:w-[430px]  border-1 border-gray-300 rounded-3xl overflow-hidden">
-                  <div className="swiper-wrapper">
-                    <div className="swiper-slide">
+                <div className="w-80 h-[450px] md:h-[470px] md:w-[350px] 2xl:h-[580px] 2xl:w-[430px] border border-gray-300 rounded-3xl overflow-hidden">
+                  <Swiper
+                    modules={[Autoplay]}
+                    spaceBetween={20}
+                    slidesPerView={1}
+                    autoplay={{ delay: 1500, disableOnInteraction: false }}
+                    loop
+                    className="w-full h-full"
+                  >
+                    <SwiperSlide>
                       <img
                         src="images/image-1.webp"
                         alt="Slide1"
                         className="w-full h-full object-cover"
                       />
-                    </div>
-                    <div className="swiper-slide">
+                    </SwiperSlide>
+                    <SwiperSlide>
                       <img
                         src="images/image-2.webp"
                         alt="Slide2"
                         className="w-full h-full object-cover"
                       />
-                    </div>
-                    <div className="swiper-slide">
+                    </SwiperSlide>
+                    <SwiperSlide>
                       <img
                         src="images/image-3.webp"
                         alt="Slide3"
                         className="w-full h-full object-cover"
                       />
-                    </div>
-                    <div className="swiper-slide">
+                    </SwiperSlide>
+                    <SwiperSlide>
                       <img
                         src="images/image-5.webp"
                         alt="Slide5"
                         className="w-full h-full object-cover"
                       />
-                    </div>
-                    <div className="swiper-slide">
+                    </SwiperSlide>
+                    <SwiperSlide>
                       <img
                         src="images/image-7.webp"
                         alt="Slide7"
                         className="w-full h-full object-cover"
                       />
-                    </div>
-                    <div className="swiper-slide">
+                    </SwiperSlide>
+                    <SwiperSlide>
                       <img
-                        src="images/image8.webp"
+                        src="images/image-8.webp"
                         alt="Slide8"
                         className="w-full h-full object-cover"
                       />
-                    </div>
-                  </div>
+                    </SwiperSlide>
+                  </Swiper>
                 </div>
               </div>
               <div className="col-span-9  lg:col-span-6 2xl:col-span-6 m-2 lg:m- mt-8 md:my-16  lg:my-16  lg:p-[0px]">
                 <div className="col-span-9  my-4 lg:hidden flex justify-center items-center">
                   <div className="swiper-container w-80  h-[400px] md:h-[470px] md:w-[350px]  border-1 border-gray-300 rounded-3xl overflow-hidden">
-                    <div className="swiper-slide">
-                      <img
-                        src="images/image-1.webp"
-                        alt="Slide1"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="swiper-slide">
-                      <img
-                        src="images/image-2.webp"
-                        alt="Slide2"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="swiper-slide">
-                      <img
-                        src="images/image-3.webp"
-                        alt="Slide3"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="swiper-slide">
-                      <img
-                        src="images/image-5.webp"
-                        alt="Slide5"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="swiper-slide">
-                      <img
-                        src="images/image-7.webp"
-                        alt="Slide7"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="swiper-slide">
-                      <img
-                        src="images/image8.webp"
-                        alt="Slide8"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
+                    <Swiper
+                      modules={[Autoplay]}
+                      spaceBetween={20}
+                      slidesPerView={1}
+                      autoplay={{ delay: 1500, disableOnInteraction: false }}
+                      loop
+                      className="w-full h-full"
+                    >
+                      <SwiperSlide>
+                        <img
+                          src="images/image-1.webp"
+                          alt="Slide1"
+                          className="w-full h-full object-cover"
+                        />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img
+                          src="images/image-2.webp"
+                          alt="Slide2"
+                          className="w-full h-full object-cover"
+                        />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img
+                          src="images/image-3.webp"
+                          alt="Slide3"
+                          className="w-full h-full object-cover"
+                        />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img
+                          src="images/image-5.webp"
+                          alt="Slide5"
+                          className="w-full h-full object-cover"
+                        />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img
+                          src="images/image-7.webp"
+                          alt="Slide7"
+                          className="w-full h-full object-cover"
+                        />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img
+                          src="images/image-8.webp"
+                          alt="Slide8"
+                          className="w-full h-full object-cover"
+                        />
+                      </SwiperSlide>
+                    </Swiper>
                   </div>
                 </div>
                 <h2 className="text-white text-[14px] font-Outfit  md:text-[18px] 2xl:text-[24px] font-[300] ">
