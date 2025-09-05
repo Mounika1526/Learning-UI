@@ -245,6 +245,21 @@ input:-webkit-autofill:active {
   }
 }
 
-.animate-slide-in {
+/* .animate-slide-in {
   animation: slideIn 0.5s ease-out forwards;
+} */
+
+
+@keyframes slide {
+  0% { transform: translateX(0); }
+  16% { transform: translateX(-16.66%); }
+  32% { transform: translateX(-33.33%); }
+  48% { transform: translateX(-50%); }
+  64% { transform: translateX(-66.66%); }
+  80% { transform: translateX(-83.33%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-slide {
+  animation: slide 18s infinite;
 }
